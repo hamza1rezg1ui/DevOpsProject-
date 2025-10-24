@@ -2,11 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tn.esprit</groupId>
     <artifactId>Order</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Order</name>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
@@ -14,7 +16,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21.0.2</javafx.version>
 
+        <!-- SonarQube configuration -->
+        <sonar.projectKey>Order</sonar.projectKey>
+        <sonar.projectName>Order</sonar.projectName>
+        <sonar.projectVersion>1.0</sonar.projectVersion>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.language>java</sonar.language>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
+
     <dependencies>
         <!-- JavaFX Controls -->
         <dependency>
@@ -50,7 +61,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin JavaFX -->
+            <!-- JavaFX Plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -59,6 +70,14 @@
                     <mainClass>tn.esprit.MainApp</mainClass>
                 </configuration>
             </plugin>
+
+            <!-- SonarQube Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
         </plugins>
     </build>
+
 </project>
